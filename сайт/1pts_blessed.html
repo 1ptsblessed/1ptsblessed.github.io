@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>1pts_blessed | Ex tenebris clamavi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            color: #d9cbad;
+        }
+
+        /* ↓↓↓ СЮДА ВСТАВЬ ССЫЛКУ НА КАРТИНКУ (ЛЕС, ЗАМОК, МРАК) ↓↓↓ */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('fon2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.3) contrast(1.1) grayscale(0.4);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Затемнение сверху для читаемости текста */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.4) 30%, #010001 90%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Основная карточка */
+        .card {
+            max-width: 740px;
+            width: 100%;
+            background: #0a050ae0;
+            backdrop-filter: blur(3px);
+            border: 1px solid #5a3a28;
+            padding: 2.8rem 2.2rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.9), inset 0 0 35px rgba(40, 20, 5, 0.3);
+        }
+
+        /* Вензельная рамка */
+        .card::before {
+            content: "᚛ ᚁ ᚂ ᚃ ᚄ ᚅ ᚆ ᚇ ᚈ ᚉ ᚊ ᚋ ᚌ ᚍ ᚎ ᚏ ᚐ ᚑ ᚒ ᚓ ᚔ ᚕ ᚖ ᚗ ᚘ ᚙ ᚚ ᚛";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #8a6a42;
+            letter-spacing: 3px;
+            white-space: nowrap;
+            overflow-x: auto;
+            font-family: monospace;
+            opacity: 0.5;
+        }
+
+        .card::after {
+            content: "᚛ ᚁ ᚂ ᚃ ᚄ ᚅ ᚆ ᚇ ᚈ ᚉ ᚊ ᚋ ᚌ ᚍ ᚎ ᚏ ᚐ ᚑ ᚒ ᚓ ᚔ ᚕ ᚖ ᚗ ᚘ ᚙ ᚚ ᚛";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #8a6a42;
+            letter-spacing: 3px;
+            white-space: nowrap;
+            font-family: monospace;
+            opacity: 0.5;
+            transform: rotate(180deg);
+        }
+
+        /* Аватар */
+        .avatar {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem;
+            background: #030103;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #7a5a38;
+            filter: grayscale(0.4) contrast(1.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        .avatar span {
+            font-size: 3.2rem;
+            color: #aa8a5a;
+            font-family: serif;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', 'Georgia', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #e6d4aa;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 3px #2a1505;
+        }
+
+        .twitch-name {
+            text-align: center;
+            font-family: 'Courier New', mono
+
+
+space;
+            font-size: 0.8rem;
+            color: #b69054;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #4a2e1a;
+            display: inline-block;
+            margin: 0 auto 1.2rem;
+            padding-bottom: 0.4rem;
+        }
+
+        /* Главный акцент */
+        .cry-out {
+            padding: 1.2rem 0.8rem;
+            margin: 1.8rem 0;
+            text-align: center;
+            border-top: 2px solid #8a5a2a;
+            border-bottom: 2px solid #8a5a2a;
+            background: rgba(0,0,0,0.6);
+            box-shadow: inset 0 0 15px rgba(100, 60, 20, 0.2), 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .latin {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #e6c88a;
+            text-shadow: 0 0 5px #3a1a08;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .russian {
+            font-family: 'Times New Roman', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: #d4b67a;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-top: 1px solid #5a3a1a;
+            display: inline-block;
+            padding-top: 0.6rem;
+        }
+
+        .schedule p {
+            margin: 0.7rem 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d4be8a;
+            border-bottom: 1px dotted #4a301a;
+            padding-bottom: 0.5rem;
+        }
+
+        .schedule strong {
+            color: #e6cf8a;
+            font-weight: 500;
+            font-family: monospace;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid #6a4a28;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-weight: 400;
+            color: #e6d4aa;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            transition: 0.2s;
+            text-transform: uppercase;
+            font-family: monospace;
+        }
+
+        .btn:hover {
+            border-color: #c9a05a;
+            color: #fff5e0;
+            background: rgba(100, 70, 30, 0.2);
+            letter-spacing: 4px;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.6rem;
+            color: #7a5a38;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid #2a1a0a;
+            padding-top: 1rem;
+            font-family: monospace;
+        }
+
+        max-width: 700px {
+            body { padding: 1rem; }
+            .card { padding: 1.5rem; }
+            h1 { font-size: 1.4rem; letter-spacing: 4px; }
+            .latin { font-size: 0.85rem; }
+            .russian { font-size: 0.7rem; }
+            .btn { padding: 0.4rem 0.8rem; font-size: 0.55rem; }
+            .card::before, .card::after { font-size: 0.4rem; white-space: normal; top: -12px; bottom: -12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="avatar">
+        <img src="avatar.jpg" alt="avatar" style="width:100%; height:100%; object-fit: cover; filter: grayscale(0.3);">
+</div>
+
+    <h1>1PTS_BLESSED</h1>
+    <div class="container-center">
+        <div class="twitch-name">TWITCH.TV/1PTS_BLESSED</div>
+    </div>
+
+    <div class="cry-out">
+        <div class="latin">EX TENEBRIS CLAMAVI AD TE, DOMINE</div>
+        <div class="russian">ИЗ БЕЗДНЫ ВОЗЗВАЛ Я К ТЬМЕ</div>
+    </div>
+
+    <div class="schedule">
+        <p><strong>RITUALS</strong> <span>VT · TH · SA — 21:00 MSK</span></p>
+        <p><strong>GENRES</strong> <span>SOULS-LIKE · GOTHIC · SURVIVAL HORROR</span></p>
+
+
+<p><strong>NEXT SACRIFICE</strong> <span>DARKEST DUNGEON / BLASPHEMOUS</span></p>
+    </div>
+
+    <div class="links">
+        <a href="https://twitch.tv/1pts_blessed" class="btn" target="_blank">TWITCH</a>
+        <a href="https://t.me/Dota_eben_baton" class="btn" target="_blank">TELEGRAM</a>
+        <a href="https://discord.gg/C9wQVnpZ" class="btn" target="_blank">DISCORD</a>
+        <a href="https://pay.cloudtips.ru/p/57e163e8" class="btn" target="_blank">DONATION</a>
+    </div>
+
+    <footer>
+        EX TENEBRIS CLAMAVI · ANNO DOMINI MMXXV
+    </footer>
+</div>
+
+</body>
+</html>
